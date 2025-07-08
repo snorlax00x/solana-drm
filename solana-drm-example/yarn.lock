@@ -1699,6 +1699,12 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
+"@solana-drm/core@file:../solana-drm-core":
+  version "1.0.0"
+  resolved "file:../solana-drm-core"
+  dependencies:
+    "@solana/web3.js" "^1.74.0"
+
 "@solana-mobile/mobile-wallet-adapter-protocol-web3js@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@solana-mobile/mobile-wallet-adapter-protocol-web3js/-/mobile-wallet-adapter-protocol-web3js-2.0.0.tgz"

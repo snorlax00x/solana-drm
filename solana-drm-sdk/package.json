@@ -1,0 +1,42 @@
+{
+  "name": "@solana-drm/sdk",
+  "version": "1.0.0",
+  "description": "Solana DRM SDK for easy integration",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "solana",
+    "drm",
+    "sdk",
+    "nft",
+    "blockchain",
+    "digital-rights-management",
+    "mobile",
+    "wallet"
+  ],
+  "author": "Solana DRM Team",
+  "license": "MIT",
+  "dependencies": {
+    "@solana/web3.js": "^1.74.0",
+    "@solana-drm/core": "file:../solana-drm-core"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.9.4",
+    "eslint": "^8.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "jest": "^29.2.1",
+    "@types/jest": "^29.2.1"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.74.0"
+  }
+}
