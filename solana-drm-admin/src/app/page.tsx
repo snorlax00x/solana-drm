@@ -1,13 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Connection, clusterApiUrl, PublicKey } from "@solana/web3.js";
 import { checkDrmAccess } from "@solana-drm/core";
 
 type DrmType = "nft" | "token" | "mixed";
 
+interface DashboardStats {
+  totalPackages: number;
+  totalDrmChecks: number;
+  successRate: number;
+  activeUsers: number;
+  recentChecks: Array<{
+    id: string;
+    walletAddress: string;
+    result: boolean;
+    timestamp: Date;
+    drmType: DrmType;
+  }>;
+  recentPackages: Array<{
+    id: string;
+    packageName: string;
+    drmType: DrmType;
+    timestamp: Date;
+  }>;
+}
+
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"check" | "register">("check");
+  const [activeTab, setActiveTab] = useState<
+    "dashboard" | "check" | "register" | "analytics"
+  >("dashboard");
+  const [stats, setStats] = useState<DashboardStats>({
+    totalPackages: 0,
+    totalDrmChecks: 0,
+    successRate: 0,
+    activeUsers: 0,
+    recentChecks: [],
+    recentPackages: [],
+  });
 
   // DRM Check 관련 상태
   const [walletAddress, setWalletAddress] = useState("");
@@ -32,6 +62,54 @@ export default function Home() {
   );
 
   const connection = new Connection(clusterApiUrl("devnet"));
+
+  // Mock data for dashboard
+  useEffect(() => {
+    // 실제로는 API에서 데이터를 가져와야 함
+    setStats({
+      totalPackages: 24,
+      totalDrmChecks: 1250,
+      successRate: 87.5,
+      activeUsers: 156,
+      recentChecks: [
+        {
+          id: "1",
+          walletAddress: "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+          result: true,
+          timestamp: new Date(Date.now() - 5 * 60 * 1000),
+          drmType: "nft",
+        },
+        {
+          id: "2",
+          walletAddress: "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM",
+          result: false,
+          timestamp: new Date(Date.now() - 12 * 60 * 1000),
+          drmType: "token",
+        },
+        {
+          id: "3",
+          walletAddress: "3xJ8LcBMSCVqdpkR3robCLsWroqArNgE4vu5Vof2yuQ",
+          result: true,
+          timestamp: new Date(Date.now() - 25 * 60 * 1000),
+          drmType: "mixed",
+        },
+      ],
+      recentPackages: [
+        {
+          id: "1",
+          packageName: "com.example.game",
+          drmType: "nft",
+          timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
+        },
+        {
+          id: "2",
+          packageName: "com.premium.app",
+          drmType: "token",
+          timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
+        },
+      ],
+    });
+  }, []);
 
   const handleCheckDrm = async () => {
     if (!walletAddress) {
@@ -91,6 +169,22 @@ export default function Home() {
       );
 
       setDrmResult(hasAccess);
+
+      // Update stats
+      setStats((prev) => ({
+        ...prev,
+        totalDrmChecks: prev.totalDrmChecks + 1,
+        recentChecks: [
+          {
+            id: Date.now().toString(),
+            walletAddress,
+            result: hasAccess,
+            timestamp: new Date(),
+            drmType,
+          },
+          ...prev.recentChecks.slice(0, 4),
+        ],
+      }));
     } catch (error) {
       console.error("Error checking DRM access:", error);
       alert("An error occurred while checking DRM access.");
@@ -147,6 +241,21 @@ export default function Home() {
       // 임시로 성공 메시지 표시
       setRegistrationResult("Package registered successfully!");
 
+      // Update stats
+      setStats((prev) => ({
+        ...prev,
+        totalPackages: prev.totalPackages + 1,
+        recentPackages: [
+          {
+            id: Date.now().toString(),
+            packageName: packageName.trim(),
+            drmType: packageDrmType,
+            timestamp: new Date(),
+          },
+          ...prev.recentPackages.slice(0, 4),
+        ],
+      }));
+
       // 폼 초기화
       setPackageName("");
       setPackageDrmType("nft");
@@ -197,40 +306,350 @@ export default function Home() {
     setRegistrationResult(null);
   };
 
+  const formatTimeAgo = (date: Date) => {
+    const now = new Date();
+    const diffInMinutes = Math.floor(
+      (now.getTime() - date.getTime()) / (1000 * 60)
+    );
+
+    if (diffInMinutes < 1) return "Just now";
+    if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `${diffInHours}h ago`;
+
+    const diffInDays = Math.floor(diffInHours / 24);
+    return `${diffInDays}d ago`;
+  };
+
+  const shortenAddress = (address: string) => {
+    return `${address.slice(0, 4)}...${address.slice(-4)}`;
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Solana DRM Management Tool
-          </h1>
-
-          {/* Tab Navigation */}
-          <div className="flex border-b border-gray-200 mb-6">
-            <button
-              onClick={() => setActiveTab("check")}
-              className={`px-4 py-2 font-medium ${
-                activeTab === "check"
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              DRM Check
-            </button>
-            <button
-              onClick={() => setActiveTab("register")}
-              className={`px-4 py-2 font-medium ${
-                activeTab === "register"
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-500 hover:text-gray-700"
-              }`}
-            >
-              Package Registration
-            </button>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            <h1 className="text-2xl font-bold text-gray-900">
+              Solana DRM Admin Dashboard
+            </h1>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-sm text-gray-600">System Online</span>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          {activeTab === "check" && (
-            <>
+      {/* Navigation */}
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex space-x-8">
+            {[
+              { id: "dashboard", label: "Dashboard", icon: "📊" },
+              { id: "check", label: "DRM Check", icon: "🔍" },
+              { id: "register", label: "Register Package", icon: "📦" },
+              { id: "analytics", label: "Analytics", icon: "📈" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === tab.id
+                    ? "border-blue-500 text-blue-600"
+                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                }`}
+              >
+                <span className="mr-2">{tab.icon}</span>
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {activeTab === "dashboard" && (
+          <div className="space-y-6">
+            {/* Stats Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-lg shadow p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">📦</span>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-sm font-medium text-gray-500">
+                      Total Packages
+                    </p>
+                    <p className="text-2xl font-semibold text-gray-900">
+                      {stats.totalPackages}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">🔍</span>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-sm font-medium text-gray-500">
+                      DRM Checks
+                    </p>
+                    <p className="text-2xl font-semibold text-gray-900">
+                      {stats.totalDrmChecks.toLocaleString()}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">📈</span>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-sm font-medium text-gray-500">
+                      Success Rate
+                    </p>
+                    <p className="text-2xl font-semibold text-gray-900">
+                      {stats.successRate}%
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="w-8 h-8 bg-purple-500 rounded-md flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">👥</span>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-sm font-medium text-gray-500">
+                      Active Users
+                    </p>
+                    <p className="text-2xl font-semibold text-gray-900">
+                      {stats.activeUsers}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="bg-white rounded-lg shadow">
+              <div className="px-6 py-4 border-b border-gray-200">
+                <h3 className="text-lg font-medium text-gray-900">
+                  Quick Actions
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <button
+                    onClick={() => setActiveTab("check")}
+                    className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-blue-600 text-lg">🔍</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        Check DRM Access
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Verify wallet permissions
+                      </p>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => setActiveTab("register")}
+                    className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-green-600 text-lg">📦</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        Register Package
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Add new app package
+                      </p>
+                    </div>
+                  </button>
+
+                  <button
+                    onClick={() => setActiveTab("analytics")}
+                    className="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-purple-600 text-lg">📊</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        View Analytics
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        Detailed statistics
+                      </p>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Recent Activity */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Recent DRM Checks */}
+              <div className="bg-white rounded-lg shadow">
+                <div className="px-6 py-4 border-b border-gray-200">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    Recent DRM Checks
+                  </h3>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-4">
+                    {stats.recentChecks.map((check) => (
+                      <div
+                        key={check.id}
+                        className="flex items-center justify-between"
+                      >
+                        <div className="flex items-center">
+                          <div
+                            className={`w-3 h-3 rounded-full mr-3 ${
+                              check.result ? "bg-green-500" : "bg-red-500"
+                            }`}
+                          ></div>
+                          <div>
+                            <p className="text-sm font-medium text-gray-900">
+                              {shortenAddress(check.walletAddress)}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {check.drmType.toUpperCase()} •{" "}
+                              {formatTimeAgo(check.timestamp)}
+                            </p>
+                          </div>
+                        </div>
+                        <span
+                          className={`text-sm font-medium ${
+                            check.result ? "text-green-600" : "text-red-600"
+                          }`}
+                        >
+                          {check.result ? "Granted" : "Denied"}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Recent Package Registrations */}
+              <div className="bg-white rounded-lg shadow">
+                <div className="px-6 py-4 border-b border-gray-200">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    Recent Package Registrations
+                  </h3>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-4">
+                    {stats.recentPackages.map((pkg) => (
+                      <div
+                        key={pkg.id}
+                        className="flex items-center justify-between"
+                      >
+                        <div className="flex items-center">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                          <div>
+                            <p className="text-sm font-medium text-gray-900">
+                              {pkg.packageName}
+                            </p>
+                            <p className="text-xs text-gray-500">
+                              {pkg.drmType.toUpperCase()} •{" "}
+                              {formatTimeAgo(pkg.timestamp)}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="text-sm text-gray-500">
+                          Registered
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* System Status */}
+            <div className="bg-white rounded-lg shadow">
+              <div className="px-6 py-4 border-b border-gray-200">
+                <h3 className="text-lg font-medium text-gray-900">
+                  System Status
+                </h3>
+              </div>
+              <div className="p-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        Solana Network
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        Devnet - Operational
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        DRM Program
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        Active - All functions working
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">
+                        API Services
+                      </p>
+                      <p className="text-xs text-gray-500">
+                        Healthy - 99.9% uptime
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "check" && (
+          <div className="bg-white rounded-lg shadow">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-lg font-medium text-gray-900">
+                DRM Access Check
+              </h2>
+            </div>
+            <div className="p-6">
               {/* Wallet Address Input */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -404,11 +823,18 @@ export default function Home() {
                   </p>
                 </div>
               )}
-            </>
-          )}
+            </div>
+          </div>
+        )}
 
-          {activeTab === "register" && (
-            <>
+        {activeTab === "register" && (
+          <div className="bg-white rounded-lg shadow">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-lg font-medium text-gray-900">
+                Register New Package
+              </h2>
+            </div>
+            <div className="p-6">
               {/* Package Name Input */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -583,9 +1009,34 @@ export default function Home() {
                   <p className="font-medium">{registrationResult}</p>
                 </div>
               )}
-            </>
-          )}
-        </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "analytics" && (
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg shadow p-6">
+              <h2 className="text-lg font-medium text-gray-900 mb-4">
+                Analytics Dashboard
+              </h2>
+              <p className="text-gray-600">
+                Detailed analytics and reporting features will be implemented
+                here.
+              </p>
+              <div className="mt-4 p-4 bg-gray-50 rounded-md">
+                <p className="text-sm text-gray-500">
+                  📊 Charts and graphs showing DRM usage patterns
+                  <br />
+                  📈 Package registration trends
+                  <br />
+                  🔍 User access patterns
+                  <br />
+                  💰 Revenue analytics (if applicable)
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
