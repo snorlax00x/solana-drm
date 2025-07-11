@@ -1,0 +1,77 @@
+{
+  "name": "solana-drm",
+  "version": "1.0.0",
+  "description": "Solana blockchain-based DRM (Digital Rights Management) system with NFT and token-based content protection",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm run install:core && npm run install:sdk && npm run install:admin && npm run install:example && npm run install:program",
+    "install:core": "cd solana-drm-core && npm install",
+    "install:sdk": "cd solana-drm-sdk && npm install",
+    "install:admin": "cd solana-drm-admin && npm install",
+    "install:example": "cd solana-drm-example && npm install",
+    "install:program": "cd solana-drm-program && npm install",
+    "build:all": "npm run build:core && npm run build:sdk",
+    "build:core": "cd solana-drm-core && npm run build",
+    "build:sdk": "cd solana-drm-sdk && npm run build",
+    "dev:admin": "cd solana-drm-admin && npm run dev",
+    "dev:example": "cd solana-drm-example && npm run android",
+    "deploy:program": "cd solana-drm-program && anchor deploy",
+    "test:all": "npm run test:core && npm run test:sdk && npm run test:admin && npm run test:example && npm run test:program",
+    "test:core": "cd solana-drm-core && npm test",
+    "test:sdk": "cd solana-drm-sdk && npm test",
+    "test:admin": "cd solana-drm-admin && npm test",
+    "test:example": "cd solana-drm-example && npm test",
+    "test:program": "cd solana-drm-program && npm test",
+    "lint:all": "npm run lint:core && npm run lint:sdk && npm run lint:admin && npm run lint:example",
+    "lint:core": "cd solana-drm-core && npm run lint",
+    "lint:sdk": "cd solana-drm-sdk && npm run lint",
+    "lint:admin": "cd solana-drm-admin && npm run lint",
+    "lint:example": "cd solana-drm-example && npm run lint",
+    "clean:all": "npm run clean:core && npm run clean:sdk && npm run clean:admin && npm run clean:example && npm run clean:program",
+    "clean:core": "cd solana-drm-core && rm -rf dist node_modules",
+    "clean:sdk": "cd solana-drm-sdk && rm -rf dist node_modules",
+    "clean:admin": "cd solana-drm-admin && rm -rf .next node_modules",
+    "clean:example": "cd solana-drm-example && rm -rf node_modules",
+    "clean:program": "cd solana-drm-program && rm -rf target node_modules",
+    "setup:dev": "npm run install:all && npm run build:all",
+    "start:dev": "concurrently \"npm run dev:admin\" \"npm run dev:example\"",
+    "docs:dev": "cd docs && npm run dev",
+    "docs:build": "cd docs && npm run build"
+  },
+  "keywords": [
+    "solana",
+    "drm",
+    "blockchain",
+    "nft",
+    "token",
+    "digital-rights-management",
+    "content-protection",
+    "react-native",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/solana-drm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/solana-drm/issues"
+  },
+  "homepage": "https://github.com/your-username/solana-drm#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "workspaces": [
+    "solana-drm-core",
+    "solana-drm-sdk",
+    "solana-drm-admin",
+    "solana-drm-example",
+    "solana-drm-program"
+  ]
+}
