@@ -13,7 +13,7 @@ export default function MainScreen() {
   const [balance, setBalance] = useState<number | null>(null);
   const [hasDrmAccess, setHasDrmAccess] = useState<boolean | null>(null);
   const [isCheckingDrm, setIsCheckingDrm] = useState(false);
-  // 패키지 이름 (실제 앱에서는 앱의 패키지 이름으로 설정)
+  // Package name (in real app, set to the app's package name)
   const packageName = 'com.example.app';
 
   const fetchAndUpdateBalance = useCallback(

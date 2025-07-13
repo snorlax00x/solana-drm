@@ -1,119 +1,119 @@
 # Solana DRM System
 
-솔라나 블록체인 기반의 완전한 DRM(Digital Rights Management) 시스템입니다. NFT와 토큰 기반의 디지털 콘텐츠 보호 솔루션을 제공합니다.
+A complete DRM (Digital Rights Management) system based on the Solana blockchain. Provides NFT and token-based digital content protection solutions.
 
 ![Solana DRM](https://img.shields.io/badge/Solana-DRM%20System-purple?style=for-the-badge&logo=solana)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 
-## 📋 목차
+## 📋 Table of Contents
 
-- [개요](#-개요)
-- [주요 기능](#-주요-기능)
-- [프로젝트 구조](#-프로젝트-구조)
-- [빠른 시작](#-빠른-시작)
-- [설치 및 설정](#-설치-및-설정)
-- [사용법](#-사용법)
-- [API 참조](#-api-참조)
-- [시나리오 예제](#-시나리오-예제)
-- [기술 스택](#-기술-스택)
-- [기여하기](#-기여하기)
-- [라이선스](#-라이선스)
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Project Structure](#-project-structure)
+- [Quick Start](#-quick-start)
+- [Installation & Setup](#-installation--setup)
+- [Usage](#-usage)
+- [API Reference](#-api-reference)
+- [Scenario Examples](#-scenario-examples)
+- [Tech Stack](#-tech-stack)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## 🎯 개요
+## 🎯 Overview
 
-Solana DRM System은 블록체인 기술을 활용하여 디지털 콘텐츠의 접근 권한을 관리하는 완전한 솔루션입니다.
+Solana DRM System is a complete solution for managing digital content access rights using blockchain technology.
 
-### 핵심 특징
+### Core Features
 
-- 🔐 **NFT/토큰 기반 접근 제어**: 특정 NFT 소유권이나 토큰 잔액으로 콘텐츠 접근 제어
-- 📱 **크로스 플랫폼 지원**: React Native 모바일 앱과 웹 관리자 도구
-- ⚡ **실시간 검증**: 솔라나 블록체인을 통한 실시간 권한 검증
-- 📊 **종합적인 대시보드**: 통계, 모니터링, 분석 기능이 포함된 관리자 대시보드
-- 🔧 **개발자 친화적**: TypeScript SDK와 간단한 API 제공
+- 🔐 **NFT/Token-based Access Control**: Control content access through specific NFT ownership or token balance
+- 📱 **Cross-platform Support**: React Native mobile app and web admin tools
+- ⚡ **Real-time Verification**: Real-time permission verification through Solana blockchain
+- 📊 **Comprehensive Dashboard**: Admin dashboard with statistics, monitoring, and analytics features
+- 🔧 **Developer-friendly**: TypeScript SDK and simple API
 
-## ✨ 주요 기능
+## ✨ Key Features
 
-### 🎮 모바일 앱 (React Native)
+### 🎮 Mobile App (React Native)
 
-- 지갑 연결 및 관리
-- 실시간 DRM 접근 권한 확인
-- 보호된 콘텐츠 표시
-- 사용자 친화적 인터페이스
+- Wallet connection and management
+- Real-time DRM access permission verification
+- Protected content display
+- User-friendly interface
 
-### 🖥️ 관리자 대시보드 (Next.js)
+### 🖥️ Admin Dashboard (Next.js)
 
-- **📊 실시간 통계**: 패키지 수, DRM 체크 수, 성공률, 활성 사용자
-- **⚡ 빠른 액션**: DRM 체크, 패키지 등록, 분석 바로가기
-- **📈 최근 활동**: 실시간 DRM 체크 및 패키지 등록 기록
-- **🔍 시스템 모니터링**: Solana 네트워크, DRM 프로그램, API 서비스 상태
-- **📦 패키지 관리**: 앱 패키지 등록 및 DRM 정책 설정
-- **🔐 권한 검증**: 지갑별 실시간 DRM 상태 체크
+- **📊 Real-time Statistics**: Package count, DRM check count, success rate, active users
+- **⚡ Quick Actions**: DRM check, package registration, analytics shortcuts
+- **📈 Recent Activity**: Real-time DRM check and package registration logs
+- **🔍 System Monitoring**: Solana network, DRM program, API service status
+- **📦 Package Management**: App package registration and DRM policy settings
+- **🔐 Permission Verification**: Real-time DRM status check by wallet
 
-### ⛓️ 블록체인 프로그램 (Solana)
+### ⛓️ Blockchain Program (Solana)
 
-- 패키지 정보 블록체인 저장
-- DRM 정책 관리
-- 라이센스 발급 및 검증
-- 접근 권한 실시간 확인
+- Package information blockchain storage
+- DRM policy management
+- License issuance and verification
+- Real-time access permission verification
 
 ### 📚 SDK & Core Library
 
-- TypeScript 기반 SDK
-- NFT/토큰 소유권 확인
-- 패키지 기반 DRM 체크
-- 개발자 친화적 API
+- TypeScript-based SDK
+- NFT/Token ownership verification
+- Package-based DRM checking
+- Developer-friendly API
 
-## 🏗️ 프로젝트 구조
+## 🏗️ Project Structure
 
 ```
 solana-drm/
-├── 📱 solana-drm-example/     # React Native 모바일 앱 (데모)
+├── 📱 solana-drm-example/     # React Native mobile app (demo)
 │   ├── screens/
-│   │   └── MainScreen.tsx     # 메인 화면
-│   ├── components/            # 재사용 가능한 컴포넌트들
+│   │   └── MainScreen.tsx     # Main screen
+│   ├── components/            # Reusable components
 │   └── package.json
-├── 🖥️ solana-drm-admin/       # Next.js 관리자 대시보드
+├── 🖥️ solana-drm-admin/       # Next.js admin dashboard
 │   ├── src/app/
-│   │   └── page.tsx          # 대시보드 메인 페이지
+│   │   └── page.tsx          # Dashboard main page
 │   └── package.json
-├── ⛓️ solana-drm-program/     # 솔라나 스마트 컨트랙트
+├── ⛓️ solana-drm-program/     # Solana smart contract
 │   ├── programs/
 │   │   └── solana-drm-program/
 │   │       └── src/
-│   │           └── lib.rs    # 메인 프로그램 로직
+│   │           └── lib.rs    # Main program logic
 │   └── package.json
 ├── 📚 solana-drm-sdk/        # JavaScript/TypeScript SDK
 │   ├── src/
-│   │   ├── solana-drm.ts     # 메인 SDK 클래스
-│   │   ├── types.ts          # 타입 정의
-│   │   └── index.ts          # 엔트리포인트
+│   │   ├── solana-drm.ts     # Main SDK class
+│   │   ├── types.ts          # Type definitions
+│   │   └── index.ts          # Entry point
 │   └── package.json
-├── 🔧 solana-drm-core/       # 공유 라이브러리
+├── 🔧 solana-drm-core/       # Shared library
 │   ├── src/
-│   │   ├── drmUtils.ts       # DRM 유틸리티 함수들
-│   │   └── index.ts          # 엔트리포인트
+│   │   ├── drmUtils.ts       # DRM utility functions
+│   │   └── index.ts          # Entry point
 │   └── package.json
 └── 📖 README.md
 ```
 
-## 🚀 빠른 시작
+## 🚀 Quick Start
 
-### 1. 저장소 클론
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/your-username/solana-drm.git
 cd solana-drm
 ```
 
-### 2. 의존성 설치
+### 2. Install Dependencies
 
 ```bash
-# 전체 프로젝트 의존성 설치
+# Install all project dependencies
 npm run install:all
 
-# 또는 개별 설치
+# Or install individually
 cd solana-drm-core && npm install
 cd ../solana-drm-sdk && npm install
 cd ../solana-drm-admin && npm install
@@ -121,159 +121,159 @@ cd ../solana-drm-example && npm install
 cd ../solana-drm-program && npm install
 ```
 
-### 3. 개발 서버 실행
+### 3. Start Development Server
 
 ```bash
-# 관리자 대시보드 실행
+# Start admin dashboard
 cd solana-drm-admin
 npm run dev
-# http://localhost:3000 접속
+# Access at http://localhost:3000
 
-# 모바일 앱 실행 (Android)
+# Run mobile app (Android)
 cd solana-drm-example
 npm run android
 
-# 솔라나 프로그램 배포
+# Deploy Solana program
 cd solana-drm-program
 anchor deploy
 ```
 
-## ⚙️ 설치 및 설정
+## ⚙️ Installation & Setup
 
-### 필수 요구사항
+### Prerequisites
 
-- **Node.js** 18.0.0 이상
-- **npm** 8.0.0 이상
-- **Solana CLI** 1.16.0 이상
-- **Anchor Framework** 0.28.0 이상
-- **Android Studio** (모바일 앱 개발용)
-- **Xcode** (iOS 개발용, macOS만)
+- **Node.js** 18.0.0 or higher
+- **npm** 8.0.0 or higher
+- **Solana CLI** 1.16.0 or higher
+- **Anchor Framework** 0.28.0 or higher
+- **Android Studio** (for mobile app development)
+- **Xcode** (for iOS development, macOS only)
 
-### 상세 설정 가이드
+### Detailed Setup Guide
 
-#### 1. Solana 개발 환경 설정
+#### 1. Solana Development Environment Setup
 
 ```bash
-# Solana CLI 설치
+# Install Solana CLI
 sh -c "$(curl -sSfL https://release.solana.com/v1.16.0/install)"
 
-# 개발 네트워크 설정
+# Set development network
 solana config set --url devnet
 
-# 지갑 생성
+# Create wallet
 solana-keygen new
 
-# 테스트 SOL 받기
+# Get test SOL
 solana airdrop 2
 ```
 
-#### 2. Anchor Framework 설정
+#### 2. Anchor Framework Setup
 
 ```bash
-# Anchor CLI 설치
+# Install Anchor CLI
 cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
 
-# 프로젝트 빌드
+# Build project
 cd solana-drm-program
 anchor build
 ```
 
-#### 3. 모바일 앱 설정
+#### 3. Mobile App Setup
 
 ```bash
 cd solana-drm-example
 
-# Android 설정
+# Android setup
 npm run android:setup
 
-# iOS 설정 (macOS만)
+# iOS setup (macOS only)
 cd ios && pod install && cd ..
 npm run ios:setup
 ```
 
-## 📖 사용법
+## 📖 Usage
 
-### 관리자 대시보드 사용법
+### Admin Dashboard Usage
 
-#### 1. 대시보드 접속
+#### 1. Access Dashboard
 
 ```bash
 cd solana-drm-admin
 npm run dev
 ```
 
-브라우저에서 `http://localhost:3000` 접속
+Access at `http://localhost:3000` in your browser
 
-#### 2. 패키지 등록
+#### 2. Register Package
 
-1. **Register Package** 탭 선택
-2. 패키지 정보 입력:
+1. Select **Register Package** tab
+2. Enter package information:
    - Package Name: `com.example.app`
-   - DRM Type: NFT, Token, 또는 Mixed
-   - NFT Mint Addresses: 필요한 NFT 주소들
-   - Token Mint Address: 필요한 토큰 주소
-   - Min Token Amount: 최소 토큰 수량
-3. **Register Package** 버튼 클릭
+   - DRM Type: NFT, Token, or Mixed
+   - NFT Mint Addresses: Required NFT addresses
+   - Token Mint Address: Required token address
+   - Min Token Amount: Minimum token amount
+3. Click **Register Package** button
 
-#### 3. DRM 접근 권한 확인
+#### 3. Check DRM Access Permissions
 
-1. **DRM Check** 탭 선택
-2. 지갑 주소 입력
-3. DRM 타입 및 설정 구성
-4. **Check DRM Access** 버튼 클릭
+1. Select **DRM Check** tab
+2. Enter wallet address
+3. Configure DRM type and settings
+4. Click **Check DRM Access** button
 
-#### 4. 대시보드 모니터링
+#### 4. Dashboard Monitoring
 
-- **통계 카드**: 실시간 시스템 통계 확인
-- **최근 활동**: 최근 DRM 체크 및 패키지 등록 기록
-- **시스템 상태**: 네트워크 및 서비스 상태 모니터링
+- **Statistics Cards**: Check real-time system statistics
+- **Recent Activity**: Recent DRM check and package registration logs
+- **System Status**: Monitor network and service status
 
-### 모바일 앱 사용법
+### Mobile App Usage
 
-#### 1. 앱 실행
+#### 1. Run App
 
 ```bash
 cd solana-drm-example
-npm run android  # 또는 npm run ios
+npm run android  # or npm run ios
 ```
 
-#### 2. 지갑 연결
+#### 2. Connect Wallet
 
-1. **Connect Wallet** 버튼 클릭
-2. 지원되는 지갑 선택 (Phantom, Solflare 등)
-3. 지갑에서 연결 승인
+1. Click **Connect Wallet** button
+2. Select supported wallet (Phantom, Solflare, etc.)
+3. Approve connection in wallet
 
-#### 3. DRM 상태 확인
+#### 3. Check DRM Status
 
-- 앱이 자동으로 패키지 기반 DRM 체크 수행
-- 접근 권한에 따라 콘텐츠 표시 또는 제한
+- App automatically performs package-based DRM check
+- Display or restrict content based on access permissions
 
-### SDK 사용법
+### SDK Usage
 
-#### 1. SDK 설치
+#### 1. Install SDK
 
 ```bash
 npm install @solana-drm/sdk
 ```
 
-#### 2. 기본 사용법
+#### 2. Basic Usage
 
 ```typescript
 import { SolanaDRM } from "@solana-drm/sdk";
 
 const drm = new SolanaDRM();
 
-// 패키지 기반 접근 권한 확인
+// Check package-based access permissions
 const result = await drm.checkPackageAccess(walletAddress, "com.example.app");
 
 if (result.hasAccess) {
-  console.log("접근 허용");
+  console.log("Access granted");
 } else {
-  console.log("접근 거부");
+  console.log("Access denied");
 }
 ```
 
-#### 3. 직접 DRM 설정으로 확인
+#### 3. Check with Direct DRM Configuration
 
 ```typescript
 const drmConfig = {
@@ -285,28 +285,28 @@ const drmConfig = {
 const hasAccess = await drm.checkDrmAccess(walletAddress, drmConfig);
 ```
 
-## 🔌 API 참조
+## 🔌 API Reference
 
-### SolanaDRM 클래스
+### SolanaDRM Class
 
-#### 생성자
+#### Constructor
 
 ```typescript
 new SolanaDRM(connection?: Connection)
 ```
 
-#### 메서드
+#### Methods
 
 ##### `checkPackageAccess(walletAddress: string, packageName: string)`
 
-패키지 이름으로 DRM 접근 권한 확인
+Check DRM access permissions by package name
 
-**매개변수:**
+**Parameters:**
 
-- `walletAddress`: 확인할 지갑 주소
-- `packageName`: 앱 패키지 이름
+- `walletAddress`: Wallet address to check
+- `packageName`: App package name
 
-**반환값:**
+**Returns:**
 
 ```typescript
 {
@@ -322,14 +322,14 @@ new SolanaDRM(connection?: Connection)
 
 ##### `checkDrmAccess(walletAddress: string, drmConfig: DrmConfig)`
 
-직접 DRM 설정으로 접근 권한 확인
+Check access permissions with direct DRM configuration
 
-**매개변수:**
+**Parameters:**
 
-- `walletAddress`: 확인할 지갑 주소
-- `drmConfig`: DRM 설정 객체
+- `walletAddress`: Wallet address to check
+- `drmConfig`: DRM configuration object
 
-**반환값:**
+**Returns:**
 
 ```typescript
 boolean;
@@ -337,9 +337,9 @@ boolean;
 
 ##### `registerPackage(packageInfo: PackageInfo)`
 
-새로운 패키지 등록
+Register new package
 
-**매개변수:**
+**Parameters:**
 
 ```typescript
 {
@@ -351,7 +351,7 @@ boolean;
 }
 ```
 
-### DrmConfig 타입
+### DrmConfig Type
 
 ```typescript
 interface DrmConfig {
@@ -361,14 +361,14 @@ interface DrmConfig {
 }
 ```
 
-## 🎮 시나리오 예제
+## 🎮 Scenario Examples
 
-### 시나리오 1: 프리미엄 게임 앱
+### Scenario 1: Premium Game App
 
-#### 1. 게임 개발사 설정
+#### 1. Game Developer Setup
 
 ```typescript
-// 어드민에서 패키지 등록
+// Register package in admin
 const packageInfo = {
   packageName: "com.gamedev.premiumgame",
   drmType: "nft",
@@ -378,25 +378,25 @@ const packageInfo = {
 await drm.registerPackage(packageInfo);
 ```
 
-#### 2. 사용자 앱 실행
+#### 2. User App Execution
 
 ```typescript
-// 앱에서 자동으로 DRM 체크
+// Automatically check DRM in app
 const result = await drm.checkPackageAccess(
   userWalletAddress,
   "com.gamedev.premiumgame"
 );
 
 if (result.hasAccess) {
-  showGame(); // 게임 표시
+  showGame(); // Display game
 } else {
-  showPurchasePrompt(); // 구매 안내
+  showPurchasePrompt(); // Show purchase prompt
 }
 ```
 
-### 시나리오 2: VIP 멤버십 앱
+### Scenario 2: VIP Membership App
 
-#### 1. 콘텐츠 제공자 설정
+#### 1. Content Provider Setup
 
 ```typescript
 const packageInfo = {
@@ -410,7 +410,7 @@ const packageInfo = {
 await drm.registerPackage(packageInfo);
 ```
 
-#### 2. 사용자 접근 확인
+#### 2. User Access Verification
 
 ```typescript
 const result = await drm.checkPackageAccess(
@@ -419,15 +419,15 @@ const result = await drm.checkPackageAccess(
 );
 
 if (result.hasAccess) {
-  showVipContent(); // VIP 콘텐츠 표시
+  showVipContent(); // Display VIP content
 } else {
-  showMembershipPrompt(); // 멤버십 안내
+  showMembershipPrompt(); // Show membership prompt
 }
 ```
 
-### 시나리오 3: 토큰 기반 서비스
+### Scenario 3: Token-based Service
 
-#### 1. 서비스 제공자 설정
+#### 1. Service Provider Setup
 
 ```typescript
 const packageInfo = {
@@ -440,7 +440,7 @@ const packageInfo = {
 await drm.registerPackage(packageInfo);
 ```
 
-#### 2. 사용량 기반 접근
+#### 2. Usage-based Access
 
 ```typescript
 const result = await drm.checkPackageAccess(
@@ -449,38 +449,38 @@ const result = await drm.checkPackageAccess(
 );
 
 if (result.hasAccess) {
-  provideService(); // 서비스 제공
+  provideService(); // Provide service
 } else {
-  showTokenPurchase(); // 토큰 구매 안내
+  showTokenPurchase(); // Show token purchase prompt
 }
 ```
 
-## 🛠️ 기술 스택
+## 🛠️ Tech Stack
 
 ### Frontend
 
-- **React Native**: 모바일 앱 개발
-- **Next.js**: 관리자 대시보드
-- **TypeScript**: 타입 안전성
-- **Tailwind CSS**: 스타일링
+- **React Native**: Mobile app development
+- **Next.js**: Admin dashboard
+- **TypeScript**: Type safety
+- **Tailwind CSS**: Styling
 
 ### Backend & Blockchain
 
-- **Solana**: 블록체인 플랫폼
-- **Anchor Framework**: 스마트 컨트랙트 개발
-- **Rust**: 스마트 컨트랙트 언어
+- **Solana**: Blockchain platform
+- **Anchor Framework**: Smart contract development
+- **Rust**: Smart contract language
 - **@solana/web3.js**: Solana JavaScript API
 
 ### Development Tools
 
-- **npm**: 패키지 관리
-- **ESLint**: 코드 품질
-- **Prettier**: 코드 포맷팅
-- **TypeScript**: 정적 타입 검사
+- **npm**: Package management
+- **ESLint**: Code quality
+- **Prettier**: Code formatting
+- **TypeScript**: Static type checking
 
-## 🤝 기여하기
+## 🤝 Contributing
 
-프로젝트에 기여하고 싶으시다면 다음 단계를 따라주세요:
+If you want to contribute to the project, follow these steps:
 
 ### 1. Fork & Clone
 
@@ -489,47 +489,47 @@ git clone https://github.com/your-username/solana-drm.git
 cd solana-drm
 ```
 
-### 2. 개발 브랜치 생성
+### 2. Create Development Branch
 
 ```bash
 git checkout -b feature/your-feature-name
 ```
 
-### 3. 변경사항 커밋
+### 3. Commit Changes
 
 ```bash
 git add .
 git commit -m "feat: add your feature description"
 ```
 
-### 4. Pull Request 생성
+### 4. Create Pull Request
 
-GitHub에서 Pull Request를 생성하고 변경사항을 설명해주세요.
+Create a Pull Request on GitHub and describe your changes.
 
-### 개발 가이드라인
+### Development Guidelines
 
-- **코드 스타일**: TypeScript, ESLint 규칙 준수
-- **커밋 메시지**: Conventional Commits 형식 사용
-- **테스트**: 새로운 기능에 대한 테스트 코드 작성
-- **문서화**: API 변경사항 문서 업데이트
+- **Code Style**: Follow TypeScript, ESLint rules
+- **Commit Messages**: Use Conventional Commits format
+- **Testing**: Write test code for new features
+- **Documentation**: Update API change documentation
 
-## 📄 라이선스
+## 📄 License
 
-이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+This project is distributed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 📞 지원
+## 📞 Support
 
-- **이슈 리포트**: [GitHub Issues](https://github.com/your-username/solana-drm/issues)
-- **문서**: [Wiki](https://github.com/your-username/solana-drm/wiki)
-- **토론**: [GitHub Discussions](https://github.com/your-username/solana-drm/discussions)
+- **Issue Reporting**: [GitHub Issues](https://github.com/your-username/solana-drm/issues)
+- **Documentation**: [Wiki](https://github.com/your-username/solana-drm/wiki)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/solana-drm/discussions)
 
-## 🙏 감사의 말
+## 🙏 Acknowledgments
 
-- [Solana Labs](https://solana.com/) - 블록체인 플랫폼
-- [Anchor Framework](https://www.anchor-lang.com/) - 스마트 컨트랙트 개발 도구
-- [React Native](https://reactnative.dev/) - 모바일 앱 개발
-- [Next.js](https://nextjs.org/) - React 프레임워크
+- [Solana Labs](https://solana.com/) - Blockchain platform
+- [Anchor Framework](https://www.anchor-lang.com/) - Smart contract development tools
+- [React Native](https://reactnative.dev/) - Mobile app development
+- [Next.js](https://nextjs.org/) - React framework
 
 ---
 
-⭐ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!
+⭐ If this project helped you, please give it a star!

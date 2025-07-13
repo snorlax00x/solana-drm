@@ -43,7 +43,7 @@ export class SolanaDRM {
       //   drmConfig
       // );
 
-      // 임시 구현
+      // Temporary implementation
       const hasAccess = true;
 
       return {
@@ -71,7 +71,7 @@ export class SolanaDRM {
     packageName: string
   ): Promise<AccessResult> {
     try {
-      // 1. 패키지 정보 조회
+      // 1. Get package information
       const packageInfo = await this.getPackageInfo(packageName);
       if (!packageInfo) {
         return {
@@ -87,7 +87,7 @@ export class SolanaDRM {
         };
       }
 
-      // 2. DRM 설정 구성
+      // 2. Configure DRM settings
       const drmConfig: DRMConfig = {
         nftMintAddresses:
           packageInfo.nftMintAddresses.length > 0
@@ -97,7 +97,7 @@ export class SolanaDRM {
         minTokenAmount: packageInfo.minTokenAmount,
       };
 
-      // 3. DRM 접근 권한 확인
+      // 3. Check DRM access permissions
       return await this.checkAccess(walletAddress, drmConfig);
     } catch (error) {
       console.error("Error checking package access:", error);
@@ -113,7 +113,7 @@ export class SolanaDRM {
    */
   async registerPackage(registration: PackageRegistration): Promise<boolean> {
     try {
-      // TODO: 실제 솔라나 프로그램 호출
+      // TODO: Actual Solana program call
       // const programId = new PublicKey("YOUR_PROGRAM_ID");
       // const instruction = await this.createRegisterPackageInstruction(registration);
       // const transaction = new Transaction().add(instruction);
@@ -132,14 +132,14 @@ export class SolanaDRM {
    */
   async getPackageInfo(packageName: string): Promise<PackageInfo | null> {
     try {
-      // TODO: 실제 솔라나 프로그램에서 패키지 정보 조회
+      // TODO: Get package information from actual Solana program
       // const programId = new PublicKey("YOUR_PROGRAM_ID");
       // const packagePda = await this.findPackagePda(packageName);
       // const packageAccount = await this.connection.getAccountInfo(packagePda);
       // if (!packageAccount) return null;
       // return this.deserializePackage(packageAccount.data);
 
-      // 임시 구현 - 실제로는 블록체인에서 조회
+      // Temporary implementation - in reality, query from blockchain
       return {
         packageName,
         drmType: "nft",
@@ -164,7 +164,7 @@ export class SolanaDRM {
     updates: Partial<PackageRegistration>
   ): Promise<boolean> {
     try {
-      // TODO: 실제 솔라나 프로그램 호출
+      // TODO: Actual Solana program call
       console.log("Package updated:", packageName, updates);
       return true;
     } catch (error) {

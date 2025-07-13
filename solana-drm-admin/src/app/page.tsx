@@ -39,7 +39,7 @@ export default function Home() {
     recentPackages: [],
   });
 
-  // DRM Check 관련 상태
+  // DRM Check related state
   const [walletAddress, setWalletAddress] = useState("");
   const [drmType, setDrmType] = useState<DrmType>("nft");
   const [nftMintAddresses, setNftMintAddresses] = useState<string[]>([""]);
@@ -48,7 +48,7 @@ export default function Home() {
   const [drmResult, setDrmResult] = useState<boolean | null>(null);
   const [isChecking, setIsChecking] = useState(false);
 
-  // Package Registration 관련 상태
+  // Package Registration related state
   const [packageName, setPackageName] = useState("");
   const [packageDrmType, setPackageDrmType] = useState<DrmType>("nft");
   const [packageNftAddresses, setPackageNftAddresses] = useState<string[]>([
@@ -65,7 +65,7 @@ export default function Home() {
 
   // Mock data for dashboard
   useEffect(() => {
-    // 실제로는 API에서 데이터를 가져와야 함
+    // In reality, data should be fetched from API
     setStats({
       totalPackages: 24,
       totalDrmChecks: 1250,
@@ -117,7 +117,7 @@ export default function Home() {
       return;
     }
 
-    // DRM 타입별 유효성 검사
+    // DRM type validation
     if (drmType === "nft") {
       const validNftAddresses = nftMintAddresses.filter(
         (addr) => addr.trim() !== ""
@@ -199,7 +199,7 @@ export default function Home() {
       return;
     }
 
-    // DRM 타입별 유효성 검사
+    // DRM type validation
     if (packageDrmType === "nft") {
       const validNftAddresses = packageNftAddresses.filter(
         (addr) => addr.trim() !== ""
@@ -229,7 +229,7 @@ export default function Home() {
 
     setIsRegistering(true);
     try {
-      // TODO: 실제 솔라나 프로그램 호출
+      // TODO: Actual Solana program call
       // const result = await registerPackage({
       //   packageName: packageName.trim(),
       //   drmType: packageDrmType,
@@ -238,7 +238,7 @@ export default function Home() {
       //   minTokenAmount: packageMinTokenAmount,
       // });
 
-      // 임시로 성공 메시지 표시
+      // Temporarily show success message
       setRegistrationResult("Package registered successfully!");
 
       // Update stats
@@ -256,7 +256,7 @@ export default function Home() {
         ],
       }));
 
-      // 폼 초기화
+      // Reset form
       setPackageName("");
       setPackageDrmType("nft");
       setPackageNftAddresses([""]);
