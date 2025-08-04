@@ -49,6 +49,15 @@ target 'solanaDrmApp' do
   end
 
   post_install do |installer|
+    # Skip boost installation to work around checksum error
+    installer.pods_project.targets.each do |target|
+      if target.name == 'boost'
+        target.build_configurations.each do |config|
+          config.build_settings['SKIP_INSTALL'] = 'YES'
+        end
+      end
+    end
+    
     react_native_post_install(
       installer,
       # Set `mac_catalyst_enabled` to `true` in order to apply patches

@@ -40,22 +40,30 @@ export default function Home() {
   });
 
   // DRM Check related state
-  const [walletAddress, setWalletAddress] = useState("");
+  const [walletAddress, setWalletAddress] = useState(
+    "A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X"
+  );
   const [drmType, setDrmType] = useState<DrmType>("nft");
-  const [nftMintAddresses, setNftMintAddresses] = useState<string[]>([""]);
-  const [tokenMintAddress, setTokenMintAddress] = useState("");
-  const [minTokenAmount, setMinTokenAmount] = useState(1);
+  const [nftMintAddresses, setNftMintAddresses] = useState<string[]>([
+    "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890",
+  ]);
+  const [tokenMintAddress, setTokenMintAddress] = useState(
+    "PREMIUM_TOKEN_1234567890123456789012345678901234567890"
+  );
+  const [minTokenAmount, setMinTokenAmount] = useState(100);
   const [drmResult, setDrmResult] = useState<boolean | null>(null);
   const [isChecking, setIsChecking] = useState(false);
 
   // Package Registration related state
-  const [packageName, setPackageName] = useState("");
+  const [packageName, setPackageName] = useState("com.example.premiumgame");
   const [packageDrmType, setPackageDrmType] = useState<DrmType>("nft");
   const [packageNftAddresses, setPackageNftAddresses] = useState<string[]>([
-    "",
+    "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890",
   ]);
-  const [packageTokenAddress, setPackageTokenAddress] = useState("");
-  const [packageMinTokenAmount, setPackageMinTokenAmount] = useState(1);
+  const [packageTokenAddress, setPackageTokenAddress] = useState(
+    "PREMIUM_TOKEN_1234567890123456789012345678901234567890"
+  );
+  const [packageMinTokenAmount, setPackageMinTokenAmount] = useState(100);
   const [isRegistering, setIsRegistering] = useState(false);
   const [registrationResult, setRegistrationResult] = useState<string | null>(
     null
@@ -662,6 +670,53 @@ export default function Home() {
                   placeholder="Enter wallet address"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+
+                {/* Quick Test Wallets */}
+                <div className="mt-3">
+                  <p className="text-sm text-gray-600 mb-2">
+                    Quick Test Wallets:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() =>
+                        setWalletAddress(
+                          "CNKResE1JrZTDKJcncDqet4ZWD8hNQAJgTwsv8N5TbpG"
+                        )
+                      }
+                      className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200"
+                    >
+                      Admin
+                    </button>
+                    <button
+                      onClick={() =>
+                        setWalletAddress(
+                          "A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X"
+                        )
+                      }
+                      className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-md hover:bg-green-200"
+                    >
+                      Premium
+                    </button>
+                    <button
+                      onClick={() =>
+                        setWalletAddress(
+                          "7dGURf5jtacqXAAx2j22bpWmphhvMineXxEfY4LjkWQN"
+                        )
+                      }
+                      className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200"
+                    >
+                      Standard
+                    </button>
+                    <button
+                      onClick={() =>
+                        setWalletAddress("11111111111111111111111111111112")
+                      }
+                      className="px-3 py-1 text-xs bg-red-100 text-red-700 rounded-md hover:bg-red-200"
+                    >
+                      Basic
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* DRM Type Selection */}
@@ -850,6 +905,56 @@ export default function Home() {
                   placeholder="com.example.app"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+
+                {/* Quick Test Packages */}
+                <div className="mt-3">
+                  <p className="text-sm text-gray-600 mb-2">
+                    Quick Test Packages:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      onClick={() => {
+                        setPackageName("com.example.premiumgame");
+                        setPackageDrmType("nft");
+                        setPackageNftAddresses([
+                          "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890",
+                        ]);
+                      }}
+                      className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-md hover:bg-green-200"
+                    >
+                      Premium Game
+                    </button>
+                    <button
+                      onClick={() => {
+                        setPackageName("com.example.vipapp");
+                        setPackageDrmType("token");
+                        setPackageTokenAddress(
+                          "PREMIUM_TOKEN_1234567890123456789012345678901234567890"
+                        );
+                        setPackageMinTokenAmount(100);
+                      }}
+                      className="px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200"
+                    >
+                      VIP App
+                    </button>
+                    <button
+                      onClick={() => {
+                        setPackageName("com.example.exclusivecontent");
+                        setPackageDrmType("mixed");
+                        setPackageNftAddresses([
+                          "VIP_CONTENT_NFT_1234567890123456789012345678901234567890",
+                        ]);
+                        setPackageTokenAddress(
+                          "VIP_TOKEN_1234567890123456789012345678901234567890"
+                        );
+                        setPackageMinTokenAmount(50);
+                      }}
+                      className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200"
+                    >
+                      Exclusive Content
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Package DRM Type Selection */}
