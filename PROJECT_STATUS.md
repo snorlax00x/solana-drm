@@ -1,56 +1,56 @@
 # 🚀 Solana DRM Project Status
 
-## ✅ **설정 완료된 프로젝트들**
+## ✅ **Completed Projects**
 
 ### **1. Solana DRM Core** ✅
 
-- **상태**: 설치 및 빌드 완료
-- **위치**: `solana-drm-core/`
-- **기능**: DRM 검증 로직, Solana Web3.js 통합
+- **Status**: Installation and build completed
+- **Location**: `solana-drm-core/`
+- **Features**: DRM verification logic, Solana Web3.js integration
 
 ### **2. Solana DRM Admin Dashboard** ✅
 
-- **상태**: 설치 및 실행 완료
-- **위치**: `solana-drm-admin/`
+- **Status**: Installation and running completed
+- **Location**: `solana-drm-admin/`
 - **URL**: http://localhost:3000
-- **기능**: 패키지 등록, DRM 검증, 실시간 모니터링
+- **Features**: Package registration, DRM verification, real-time monitoring
 
 ### **3. Solana DRM Example (Mobile App)** 🔄
 
-- **상태**: 설치 완료, iOS 시뮬레이터 실행 중
-- **위치**: `solana-drm-example/`
-- **기능**: 지갑 연결, DRM 상태 확인, 콘텐츠 표시
+- **Status**: Installation completed, iOS simulator running
+- **Location**: `solana-drm-example/`
+- **Features**: Wallet connection, DRM status check, content display
 
 ### **4. Solana DRM SDK** ✅
 
-- **상태**: 설치 완료
-- **위치**: `solana-drm-sdk/`
-- **기능**: 개발자용 SDK, TypeScript 지원
+- **Status**: Installation completed
+- **Location**: `solana-drm-sdk/`
+- **Features**: Developer SDK, TypeScript support
 
 ### **5. Solana DRM Program** ✅
 
-- **상태**: 설치 완료
-- **위치**: `solana-drm-program/`
-- **기능**: Rust 스마트 컨트랙트, Anchor 프레임워크
+- **Status**: Installation completed
+- **Location**: `solana-drm-program/`
+- **Features**: Rust smart contracts, Anchor framework
 
 ---
 
-## 🎬 **데모 준비 상태**
+## 🎬 **Demo Preparation Status**
 
-### **✅ 준비 완료**
+### **✅ Completed**
 
-- [x] Node.js 20.18.0 업데이트
-- [x] 모든 프로젝트 의존성 설치
-- [x] Admin Dashboard 실행 (http://localhost:3000)
-- [x] 데모용 지갑 생성 및 설정
-- [x] 데모 시나리오 스크립트 작성
+- [x] Node.js 20.18.0 update
+- [x] All project dependencies installed
+- [x] Admin Dashboard running (http://localhost:3000)
+- [x] Demo wallets created and configured
+- [x] Demo scenario scripts written
 
-### **🔄 진행 중**
+### **🔄 In Progress**
 
-- [ ] Mobile App iOS 시뮬레이터 실행
-- [ ] 실제 DRM 검증 테스트
+- [ ] Mobile App iOS simulator execution
+- [ ] Actual DRM verification testing
 
-### **📋 데모용 데이터**
+### **📋 Demo Data**
 
 - **Admin Wallet**: `CNKResE1JrZTDKJcncDqet4ZWD8hNQAJgTwsv8N5TbpG`
 - **User1 Wallet**: `A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X`
@@ -59,14 +59,14 @@
 
 ---
 
-## 🚀 **데모 실행 방법**
+## 🚀 **Demo Execution Methods**
 
 ### **1. Admin Dashboard**
 
 ```bash
 cd solana-drm-admin
 npm run dev
-# http://localhost:3000 접속
+# Access http://localhost:3000
 ```
 
 ### **2. Mobile App**
@@ -74,51 +74,51 @@ npm run dev
 ```bash
 cd solana-drm-example
 npx react-native run-ios  # iOS
-# 또는
+# or
 npx react-native run-android  # Android
 ```
 
-### **3. 데모 시나리오**
+### **3. Demo Scenario**
 
-1. Admin Dashboard에서 패키지 등록
-2. DRM 검증 테스트 (NFT 소유자 vs 미소유자)
-3. Mobile App에서 지갑 연결 및 DRM 확인
-4. 실시간 모니터링 확인
-
----
-
-## 🎯 **퀵데모 시나리오**
-
-### **시나리오: NFT 기반 게임 접근 제어**
-
-1. **Admin Dashboard** (40초) - 패키지 등록
-2. **DRM 테스트** (40초) - 접근 허용/거부 시연
-3. **Mobile App** (40초) - 지갑 연결 및 DRM 확인
-4. **실시간 모니터링** (20초) - 통계 및 로그 확인
-
-**총 시간**: 2-3분
+1. Package registration in Admin Dashboard
+2. DRM verification test (NFT owner vs non-owner)
+3. Wallet connection and DRM check in Mobile App
+4. Real-time monitoring confirmation
 
 ---
 
-## 🔧 **문제 해결**
+## 🎯 **Quick Demo Scenario**
 
-### **Admin Dashboard 접속 안 됨**
+### **Scenario: NFT-based Game Access Control**
+
+1. **Admin Dashboard** (40 seconds) - Package registration
+2. **DRM Test** (40 seconds) - Access granted/denied demonstration
+3. **Mobile App** (40 seconds) - Wallet connection and DRM check
+4. **Real-time Monitoring** (20 seconds) - Statistics and log check
+
+**Total Time**: 2-3 minutes
+
+---
+
+## 🔧 **Troubleshooting**
+
+### **Admin Dashboard Not Accessible**
 
 ```bash
 cd solana-drm-admin
 npm run dev
-# http://localhost:3000 확인
+# Check http://localhost:3000
 ```
 
-### **Mobile App 실행 안 됨**
+### **Mobile App Not Running**
 
 ```bash
 cd solana-drm-example
-npx react-native doctor  # 환경 확인
-npx react-native run-ios  # iOS 시뮬레이터
+npx react-native doctor  # Environment check
+npx react-native run-ios  # iOS simulator
 ```
 
-### **의존성 문제**
+### **Dependency Issues**
 
 ```bash
 npm cache clean --force
@@ -128,14 +128,14 @@ npm install
 
 ---
 
-## 📞 **다음 단계**
+## 📞 **Next Steps**
 
-1. **Mobile App 실행 확인**
-2. **실제 DRM 검증 테스트**
-3. **데모 영상 촬영**
-4. **시나리오별 시연**
+1. **Confirm Mobile App Execution**
+2. **Actual DRM Verification Testing**
+3. **Demo Video Recording**
+4. **Scenario-based Demonstration**
 
 ---
 
-**상태**: 🟢 **데모 준비 완료**
-**다음**: 🎬 **데모 영상 촬영**
+**Status**: 🟢 **Demo Preparation Complete**
+**Next**: 🎬 **Demo Video Recording**

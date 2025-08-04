@@ -6,21 +6,21 @@
 
 - **Public Key**: `CNKResE1JrZTDKJcncDqet4ZWD8hNQAJgTwsv8N5TbpG`
 - **Balance**: ~1 SOL
-- **Purpose**: Admin dashboard에서 패키지 등록용
+- **Purpose**: Package registration in admin dashboard
 - **Keypair File**: `demo-wallets/admin-wallet.json`
 
 ### User1 Wallet (With NFT Access)
 
 - **Public Key**: `A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X`
 - **Balance**: 2 SOL
-- **Purpose**: NFT를 소유한 사용자 시뮬레이션
+- **Purpose**: Simulate user with NFT ownership
 - **Keypair File**: `demo-wallets/user1-wallet.json`
 
 ### User2 Wallet (Without NFT Access)
 
 - **Public Key**: `7dGURf5jtacqXAAx2j22bpWmphhvMineXxEfY4LjkWQN`
 - **Balance**: 1 SOL
-- **Purpose**: NFT를 소유하지 않은 사용자 시뮬레이션
+- **Purpose**: Simulate user without NFT ownership
 - **Keypair File**: `demo-wallets/user2-wallet.json`
 
 ## 🎮 Demo NFT Addresses
@@ -29,19 +29,19 @@
 
 - **Name**: Premium Game Access NFT
 - **Mint Address**: `GAME_PREMIUM_NFT_1234567890123456789012345678901234567890`
-- **Description**: 프리미엄 게임 접근에 필요한 NFT
+- **Description**: NFT required for premium game access
 
 ### VIP Content NFT
 
 - **Name**: VIP Content NFT
 - **Mint Address**: `VIP_CONTENT_NFT_1234567890123456789012345678901234567890`
-- **Description**: VIP 콘텐츠 접근에 필요한 NFT
+- **Description**: NFT required for VIP content access
 
 ### Exclusive Feature NFT
 
 - **Name**: Exclusive Feature NFT
 - **Mint Address**: `EXCLUSIVE_FEATURE_NFT_1234567890123456789012345678901234567890`
-- **Description**: 독점 기능 접근에 필요한 NFT
+- **Description**: NFT required for exclusive features
 
 ## 💰 Demo Token Addresses
 
@@ -49,13 +49,13 @@
 
 - **Name**: Premium Token
 - **Mint Address**: `PREMIUM_TOKEN_1234567890123456789012345678901234567890`
-- **Description**: 프리미엄 접근에 필요한 토큰
+- **Description**: Token required for premium access
 
 ### VIP Token
 
 - **Name**: VIP Token
 - **Mint Address**: `VIP_TOKEN_1234567890123456789012345678901234567890`
-- **Description**: VIP 접근에 필요한 토큰
+- **Description**: Token required for VIP access
 
 ## 📦 Demo Packages
 
@@ -64,7 +64,7 @@
 - **Package Name**: `com.example.premiumgame`
 - **DRM Type**: NFT-based
 - **Required NFT**: Premium Game Access NFT
-- **Description**: NFT 소유권이 필요한 프리미엄 게임
+- **Description**: Premium game requiring NFT ownership
 
 ### 2. VIP App Package
 
@@ -72,7 +72,7 @@
 - **DRM Type**: Token-based
 - **Required Token**: Premium Token
 - **Min Amount**: 100
-- **Description**: 최소 토큰 잔액이 필요한 VIP 앱
+- **Description**: VIP app requiring minimum token balance
 
 ### 3. Exclusive Content Package
 
@@ -81,11 +81,11 @@
 - **Required NFT**: VIP Content NFT
 - **Required Token**: VIP Token
 - **Min Amount**: 50
-- **Description**: NFT와 토큰 모두 필요한 독점 콘텐츠
+- **Description**: Exclusive content requiring both NFT and token
 
 ## 🎬 Demo Video Scenarios
 
-### Scenario 1: NFT-based Access Control (추천)
+### Scenario 1: NFT-based Access Control (Recommended)
 
 1. **Admin Dashboard Setup**
 
@@ -126,7 +126,7 @@
 
 ## 🚀 Demo Setup Commands
 
-### 1. Admin Dashboard 실행
+### 1. Admin Dashboard
 
 ```bash
 cd solana-drm-admin
@@ -134,17 +134,17 @@ npm install
 npm run dev
 ```
 
-### 2. Mobile App 실행
+### 2. Mobile App
 
 ```bash
 cd solana-drm-example
 npm install
 npx react-native run-ios  # iOS
-# 또는
+# or
 npx react-native run-android  # Android
 ```
 
-### 3. Solana Network 설정
+### 3. Solana Network
 
 ```bash
 solana config set --url devnet
@@ -152,45 +152,45 @@ solana config set --url devnet
 
 ## 📝 Demo Script
 
-### 인트로 (30초)
+### Intro (30 seconds)
 
-- "Solana DRM System - 블록체인 기반 디지털 권한 관리"
-- 시스템 아키텍처 소개
+- "Solana DRM System - Blockchain-based Digital Rights Management"
+- System architecture introduction
 
-### 관리자 설정 (1분)
+### Admin Setup (1 minute)
 
-1. Admin Dashboard 접속
-2. "Register Package" 탭
-3. Package 등록 시연
-4. 실시간 통계 확인
+1. Access Admin Dashboard
+2. "Register Package" tab
+3. Package registration demo
+4. Real-time statistics check
 
-### 사용자 경험 (1.5분)
+### User Experience (1.5 minutes)
 
-1. 모바일 앱 실행
-2. 지갑 연결
-3. DRM 검증 과정
-4. 접근 허용/거부 시연
+1. Mobile app launch
+2. Wallet connection
+3. DRM verification process
+4. Access granted/denied demo
 
-### 실시간 모니터링 (30초)
+### Real-time Monitoring (30 seconds)
 
-1. Dashboard에서 실시간 로그 확인
-2. 통계 업데이트 확인
+1. Dashboard real-time logs
+2. Statistics update check
 
 ## 🔧 Troubleshooting
 
-### 지갑 잔액 확인
+### Check Wallet Balance
 
 ```bash
 solana balance [WALLET_ADDRESS] --keypair [KEYPAIR_FILE]
 ```
 
-### 새로운 지갑 생성
+### Create New Wallet
 
 ```bash
 solana-keygen new --outfile [FILENAME].json --no-bip39-passphrase
 ```
 
-### SOL 에어드롭
+### SOL Airdrop
 
 ```bash
 solana airdrop 2 [WALLET_ADDRESS] --keypair [KEYPAIR_FILE]

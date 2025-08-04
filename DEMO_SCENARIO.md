@@ -2,217 +2,217 @@
 
 ## 📋 Demo Overview
 
-**제목**: "Solana DRM System - 블록체인 기반 디지털 권한 관리"
-**길이**: 3-4분
-**목표**: NFT 기반 프리미엄 게임 접근 제어 시연
+**Title**: "Solana DRM System - Blockchain-based Digital Rights Management"
+**Duration**: 3-4 minutes
+**Goal**: NFT-based premium game access control demonstration
 
 ---
 
 ## 🎯 Main Scenario: Premium Game Access Control
 
-### **시나리오 개요**
+### **Scenario Overview**
 
-- **게임**: "Crypto Warriors Premium Edition"
-- **DRM 타입**: NFT-based access control
-- **필요 NFT**: "Premium Game Access NFT"
-- **테스트 사용자**: 2명 (NFT 소유자 vs 미소유자)
+- **Game**: "Crypto Warriors Premium Edition"
+- **DRM Type**: NFT-based access control
+- **Required NFT**: "Premium Game Access NFT"
+- **Test Users**: 2 users (NFT owner vs non-owner)
 
 ---
 
 ## 📝 Detailed Script
 
-### **1. 인트로 (30초)**
+### **1. Intro (30 seconds)**
 
-**화면**: 프로젝트 제목 + 시스템 아키텍처 다이어그램
+**Screen**: Project title + System architecture diagram
 
-**내레이션**:
+**Narration**:
 
-> "안녕하세요! 오늘은 Solana 블록체인을 활용한 혁신적인 DRM 시스템을 소개합니다.
-> 기존의 중앙화된 DRM과 달리, 블록체인 기반으로 투명하고 안전한 디지털 권한 관리를 제공합니다."
+> "Hello! Today we're introducing an innovative DRM system using Solana blockchain.
+> Unlike traditional centralized DRM, we provide transparent and secure digital rights management based on blockchain technology."
 
-**시연 포인트**:
+**Demo Points**:
 
-- 시스템 아키텍처 다이어그램 표시
-- Solana 네트워크 연결 상태 확인
+- Display system architecture diagram
+- Check Solana network connection status
 
 ---
 
-### **2. Admin Dashboard 설정 (1분)**
+### **2. Admin Dashboard Setup (1 minute)**
 
-**화면**: Admin Dashboard (solana-drm-admin)
+**Screen**: Admin Dashboard (solana-drm-admin)
 
-**단계별 시연**:
+**Step-by-step Demo**:
 
-#### **2.1 Dashboard 접속**
-
-```
-1. 브라우저에서 http://localhost:3000 접속
-2. "Solana DRM Admin Dashboard" 화면 확인
-3. 실시간 통계 확인 (Total Packages: 24, DRM Checks: 1,250+)
-```
-
-#### **2.2 Package 등록**
+#### **2.1 Dashboard Access**
 
 ```
-1. "Register Package" 탭 클릭
-2. Package Name 입력: "com.example.premiumgame"
-3. DRM Type 선택: "NFT-based"
-4. Required NFT Address 입력:
+1. Access http://localhost:3000 in browser
+2. Confirm "Solana DRM Admin Dashboard" screen
+3. Check real-time statistics (Total Packages: 24, DRM Checks: 1,250+)
+```
+
+#### **2.2 Package Registration**
+
+```
+1. Click "Register Package" tab
+2. Enter Package Name: "com.example.premiumgame"
+3. Select DRM Type: "NFT-based"
+4. Enter Required NFT Address:
    "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890"
-5. "Register Package" 버튼 클릭
-6. 성공 메시지 확인: "Package registered successfully!"
+5. Click "Register Package" button
+6. Confirm success message: "Package registered successfully!"
 ```
 
-**내레이션**:
+**Narration**:
 
-> "먼저 관리자 대시보드에서 새로운 게임 패키지를 등록합니다.
-> NFT 기반 접근 제어를 설정하여, 특정 NFT를 소유한 사용자만 게임에 접근할 수 있도록 합니다."
+> "First, we register a new game package in the admin dashboard.
+> We set up NFT-based access control so only users who own specific NFTs can access the game."
 
 ---
 
-### **3. DRM 검증 테스트 (1분)**
+### **3. DRM Verification Test (1 minute)**
 
-**화면**: Admin Dashboard - Check DRM 탭
+**Screen**: Admin Dashboard - Check DRM tab
 
-**단계별 시연**:
+**Step-by-step Demo**:
 
-#### **3.1 NFT 소유자 테스트 (User1)**
-
-```
-1. "Check DRM" 탭 클릭
-2. Wallet Address 입력: "A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X"
-3. Package Name 입력: "com.example.premiumgame"
-4. "Check Access" 버튼 클릭
-5. 결과 확인: ✅ "Access granted - Required NFT is owned"
-```
-
-#### **3.2 NFT 미소유자 테스트 (User2)**
+#### **3.1 NFT Owner Test (User1)**
 
 ```
-1. Wallet Address 변경: "7dGURf5jtacqXAAx2j22bpWmphhvMineXxEfY4LjkWQN"
-2. "Check Access" 버튼 클릭
-3. 결과 확인: ❌ "Access denied - Purchase required NFT"
+1. Click "Check DRM" tab
+2. Enter Wallet Address: "A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X"
+3. Enter Package Name: "com.example.premiumgame"
+4. Click "Check Access" button
+5. Confirm result: ✅ "Access granted - Required NFT is owned"
 ```
 
-**내레이션**:
+#### **3.2 Non-NFT Owner Test (User2)**
 
-> "이제 실제 사용자 지갑으로 접근 권한을 테스트해보겠습니다.
-> NFT를 소유한 사용자는 접근이 허용되고, 소유하지 않은 사용자는 접근이 거부됩니다."
+```
+1. Change Wallet Address: "7dGURf5jtacqXAAx2j22bpWmphhvMineXxEfY4LjkWQN"
+2. Click "Check Access" button
+3. Confirm result: ❌ "Access denied - Purchase required NFT"
+```
+
+**Narration**:
+
+> "Now let's test access permissions with actual user wallets.
+> Users who own the NFT get access granted, while those without get access denied."
 
 ---
 
-### **4. 모바일 앱 시연 (1분)**
+### **4. Mobile App Demo (1 minute)**
 
-**화면**: React Native 앱 (solana-drm-example)
+**Screen**: React Native app (solana-drm-example)
 
-**단계별 시연**:
+**Step-by-step Demo**:
 
-#### **4.1 앱 실행 및 지갑 연결**
-
-```
-1. 모바일 앱 실행
-2. "Connect Wallet" 버튼 클릭
-3. Phantom 지갑 연결 시연
-4. 지갑 주소 표시 확인
-```
-
-#### **4.2 DRM 상태 확인**
+#### **4.1 App Launch and Wallet Connection**
 
 ```
-1. "DRM Status" 섹션 확인
-2. "Checking DRM permissions..." 로딩 표시
-3. 결과 표시:
-   - NFT 소유자: ✅ "Access granted! Required NFT is owned"
-   - NFT 미소유자: ❌ "Access denied. Purchase required NFT"
+1. Launch mobile app
+2. Click "Connect Wallet" button
+3. Demo Phantom wallet connection
+4. Confirm wallet address display
 ```
 
-#### **4.3 콘텐츠 표시**
+#### **4.2 DRM Status Check**
 
 ```
-1. 접근 허용 시: 프리미엄 게임 콘텐츠 표시
-2. 접근 거부 시: "Purchase NFT to access premium content" 메시지
+1. Check "DRM Status" section
+2. Show "Checking DRM permissions..." loading
+3. Display result:
+   - NFT owner: ✅ "Access granted! Required NFT is owned"
+   - Non-NFT owner: ❌ "Access denied. Purchase required NFT"
 ```
 
-**내레이션**:
+#### **4.3 Content Display**
 
-> "모바일 앱에서는 사용자가 지갑을 연결하면 자동으로 DRM 검증이 수행됩니다.
-> 블록체인에서 실시간으로 NFT 소유권을 확인하여 적절한 콘텐츠를 제공합니다."
+```
+1. Access granted: Show premium game content
+2. Access denied: Show "Purchase NFT to access premium content" message
+```
+
+**Narration**:
+
+> "In the mobile app, DRM verification happens automatically when users connect their wallet.
+> The app checks NFT ownership in real-time on the blockchain and provides appropriate content."
 
 ---
 
-### **5. 실시간 모니터링 (30초)**
+### **5. Real-time Monitoring (30 seconds)**
 
-**화면**: Admin Dashboard - Dashboard 탭
+**Screen**: Admin Dashboard - Dashboard tab
 
-**단계별 시연**:
+**Step-by-step Demo**:
 
-#### **5.1 실시간 통계 확인**
+#### **5.1 Real-time Statistics Check**
 
 ```
-1. Dashboard 탭으로 돌아가기
-2. 실시간 통계 업데이트 확인:
-   - Total Packages: 25 (증가)
-   - DRM Checks: 1,252 (증가)
+1. Return to Dashboard tab
+2. Check real-time statistics update:
+   - Total Packages: 25 (increased)
+   - DRM Checks: 1,252 (increased)
    - Success Rate: 87.5%
    - Active Users: 156
 ```
 
-#### **5.2 Recent Activity 확인**
+#### **5.2 Recent Activity Check**
 
 ```
-1. Recent Activity 섹션 확인
-2. 방금 수행한 DRM 검증 로그 확인:
-   - User1: ✅ Access granted (2분 전)
-   - User2: ❌ Access denied (1분 전)
+1. Check Recent Activity section
+2. Confirm DRM verification logs from just performed:
+   - User1: ✅ Access granted (2 minutes ago)
+   - User2: ❌ Access denied (1 minute ago)
 ```
 
-**내레이션**:
+**Narration**:
 
-> "모든 DRM 검증은 실시간으로 대시보드에 기록됩니다.
-> 블록체인에 저장되므로 투명하고 조작이 불가능합니다."
+> "All DRM verifications are recorded in real-time on the dashboard.
+> Since they're stored on the blockchain, they're transparent and tamper-proof."
 
 ---
 
-### **6. 마무리 (30초)**
+### **6. Conclusion (30 seconds)**
 
-**화면**: 시스템 요약 + 로고
+**Screen**: System summary + logo
 
-**내레이션**:
+**Narration**:
 
-> "Solana DRM System은 블록체인의 장점을 활용하여
-> 안전하고 투명한 디지털 권한 관리를 제공합니다.
-> 게임, 앱, 디지털 콘텐츠 등 다양한 분야에 적용할 수 있습니다."
+> "Solana DRM System leverages blockchain advantages to provide
+> secure and transparent digital rights management.
+> It can be applied to games, apps, digital content, and various other fields."
 
-**시연 포인트**:
+**Demo Points**:
 
-- 시스템 장점 요약
-- 적용 가능한 분야 소개
-- 팀 정보 및 연락처
+- System advantages summary
+- Applicable fields introduction
+- Team information and contact
 
 ---
 
 ## 🎬 Production Notes
 
-### **화면 구성**
+### **Screen Composition**
 
-1. **메인 화면**: Admin Dashboard (브라우저)
-2. **보조 화면**: Mobile App (시뮬레이터/실제 기기)
-3. **오버레이**: 시스템 아키텍처, 통계, 설명 텍스트
+1. **Main Screen**: Admin Dashboard (browser)
+2. **Secondary Screen**: Mobile App (simulator/actual device)
+3. **Overlay**: System architecture, statistics, explanation text
 
-### **필요한 준비물**
+### **Required Materials**
 
-- [ ] Admin Dashboard 실행 (`npm run dev`)
-- [ ] Mobile App 실행 (`npx react-native run-ios`)
-- [ ] 테스트 지갑 주소들 준비
-- [ ] NFT 주소 준비
-- [ ] 화면 녹화 소프트웨어
+- [ ] Admin Dashboard running (`npm run dev`)
+- [ ] Mobile App running (`npx react-native run-ios`)
+- [ ] Test wallet addresses prepared
+- [ ] NFT addresses prepared
+- [ ] Screen recording software
 
-### **예상 결과**
+### **Expected Results**
 
-- ✅ NFT 소유자: 접근 허용
-- ❌ NFT 미소유자: 접근 거부
-- 📊 실시간 통계 업데이트
-- 🔗 블록체인 검증 로그
+- ✅ NFT owner: Access granted
+- ❌ Non-NFT owner: Access denied
+- 📊 Real-time statistics update
+- 🔗 Blockchain verification logs
 
 ---
 
@@ -220,30 +220,30 @@
 
 ### **Scenario 2: Token-based Access**
 
-- VIP 앱 기능 접근 제어
-- 최소 토큰 잔액 요구
-- 동적 가격 설정
+- VIP app feature access control
+- Minimum token balance requirement
+- Dynamic pricing
 
 ### **Scenario 3: Mixed Access**
 
-- NFT + 토큰 복합 요구
-- 고급 콘텐츠 접근 제어
-- 티어별 권한 관리
+- NFT + Token combined requirement
+- Advanced content access control
+- Tier-based permission management
 
 ---
 
 ## 📞 Demo Preparation Checklist
 
-- [ ] Solana Devnet 연결 확인
-- [ ] 지갑 잔액 확인 (최소 1 SOL)
-- [ ] Admin Dashboard 실행 테스트
-- [ ] Mobile App 실행 테스트
-- [ ] DRM 검증 기능 테스트
-- [ ] 화면 녹화 설정
-- [ ] 내레이션 스크립트 준비
+- [ ] Solana Devnet connection confirmed
+- [ ] Wallet balance confirmed (minimum 1 SOL)
+- [ ] Admin Dashboard running test
+- [ ] Mobile App running test
+- [ ] DRM verification function test
+- [ ] Screen recording setup
+- [ ] Narration script prepared
 
 ---
 
-**총 예상 시간**: 3-4분
-**난이도**: 중간
-**시연 포인트**: 3개 (Admin, Mobile, Monitoring)
+**Total Expected Time**: 3-4 minutes
+**Difficulty**: Medium
+**Demo Points**: 3 (Admin, Mobile, Monitoring)
