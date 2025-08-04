@@ -1,0 +1,68 @@
+{
+  "wallets": {
+    "admin": {
+      "publicKey": "CNKResE1JrZTDKJcncDqet4ZWD8hNQAJgTwsv8N5TbpG",
+      "description": "Admin wallet for package registration"
+    },
+    "user1": {
+      "publicKey": "A2EdpqTf49MAQMLqbPYvZJPEZMjiUSiLzZYRysTED98X",
+      "description": "User wallet with NFT access"
+    },
+    "user2": {
+      "publicKey": "7dGURf5jtacqXAAx2j22bpWmphhvMineXxEfY4LjkWQN",
+      "description": "User wallet without NFT access"
+    }
+  },
+  "nfts": [
+    {
+      "name": "Premium Game Access NFT",
+      "mintAddress": "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890",
+      "description": "Required NFT for premium game access"
+    },
+    {
+      "name": "VIP Content NFT",
+      "mintAddress": "VIP_CONTENT_NFT_1234567890123456789012345678901234567890",
+      "description": "Required NFT for VIP content access"
+    },
+    {
+      "name": "Exclusive Feature NFT",
+      "mintAddress": "EXCLUSIVE_FEATURE_NFT_1234567890123456789012345678901234567890",
+      "description": "Required NFT for exclusive features"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "Premium Token",
+      "mintAddress": "PREMIUM_TOKEN_1234567890123456789012345678901234567890",
+      "description": "Required token for premium access"
+    },
+    {
+      "name": "VIP Token",
+      "mintAddress": "VIP_TOKEN_1234567890123456789012345678901234567890",
+      "description": "Required token for VIP access"
+    }
+  ],
+  "packages": [
+    {
+      "name": "com.example.premiumgame",
+      "drmType": "nft",
+      "requiredNft": "GAME_PREMIUM_NFT_1234567890123456789012345678901234567890",
+      "description": "Premium game requiring NFT access"
+    },
+    {
+      "name": "com.example.vipapp",
+      "drmType": "token",
+      "requiredToken": "PREMIUM_TOKEN_1234567890123456789012345678901234567890",
+      "minAmount": 100,
+      "description": "VIP app requiring token balance"
+    },
+    {
+      "name": "com.example.exclusivecontent",
+      "drmType": "mixed",
+      "requiredNft": "VIP_CONTENT_NFT_1234567890123456789012345678901234567890",
+      "requiredToken": "VIP_TOKEN_1234567890123456789012345678901234567890",
+      "minAmount": 50,
+      "description": "Exclusive content requiring both NFT and token"
+    }
+  ]
+}
