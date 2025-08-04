@@ -238,15 +238,6 @@ if (result.hasAccess) {
 
 ---
 
-## 🙏 Team & Tech
-
-### Team
-
-- **Blockchain Developer**: Smart contracts
-- **Frontend Developer**: Mobile app & admin
-- **Backend Developer**: SDK & API
-- **UI/UX Designer**: User experience
-
 ### Technologies
 
 - **Solana Blockchain**: High-performance infrastructure
